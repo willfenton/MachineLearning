@@ -39,7 +39,7 @@ def gradient_descent(X, y, learning_rate=0.1, num_iterations=1000):
     for i in range(num_iterations):
         predictions = X.dot(theta)
         error = predictions - y
-        delta = (X.transpose().dot(error)) * (learning_rate / m)
+        delta = (X.T.dot(error)) * (learning_rate / m)
         theta -= delta
 
         cost = mean_squared_error(X, y, theta)
@@ -107,7 +107,7 @@ def multivariable_example():
         [(3 - mu[1]) / std[1]]
     ])
 
-    predicted_value = theta.transpose().dot(house)[0][0]
+    predicted_value = theta.T.dot(house)[0][0]
     print(predicted_value)
 
 
@@ -176,7 +176,7 @@ def graduate_admission():
         [(1 - mu[6]) / std[6]]
     ])
 
-    predicted_admission_probability = theta.transpose().dot(student)[0][0]
+    predicted_admission_probability = theta.T.dot(student)[0][0]
     print(predicted_admission_probability)
 
 

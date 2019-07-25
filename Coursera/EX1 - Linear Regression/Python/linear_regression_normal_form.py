@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 def normal_equation(X, y):
     m, n = X.shape
     X = np.hstack((np.ones((m, 1)), X))
-    theta = np.linalg.inv(X.transpose().dot(X)).dot(X.transpose().dot(y))
+    theta = np.linalg.inv(X.T.dot(X)).dot(X.T.dot(y))
     return theta
 
 #---------------------------------------------------------------------
@@ -39,7 +39,7 @@ def multivariable_example():
     ])
 
     # example of predicting the price of a 1650 sqft, 3 bdrm house
-    predicted_value = theta.transpose().dot(house)[0][0]
+    predicted_value = theta.T.dot(house)[0][0]
     print(predicted_value)
 
 
@@ -86,7 +86,7 @@ def graduate_admission():
     # ])
 
     # # example of predicting the price of a 1650 sqft, 3 bdrm house
-    # predicted_admission_probability = theta.transpose().dot(student)[0][0]
+    # predicted_admission_probability = theta.T.dot(student)[0][0]
     # print(predicted_admission_probability)
 
     data = np.loadtxt("admission_predict.csv", delimiter=',', skiprows=1)
