@@ -81,6 +81,9 @@ for i = 1:m
     delta3 = h_theta - y_i';
     delta2 = (Theta2' * delta3)(2:end) .* sigmoidGradient(z2);
 
+    disp(size(delta2));
+    disp(size(a1));
+
     Theta1_grad = Theta1_grad + ((delta2 * a1') / m);
     Theta2_grad = Theta2_grad + ((delta3 * a2') / m);
 
